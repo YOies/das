@@ -1,16 +1,14 @@
+--b
+
+getgenv().MacroName  = ""
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
 local Notify = AkaliNotif.Notify;
-getgenv().MacroName  = ""
-local macro  = {}
-for i, v in pairs(listfiles("")) do
-    local name = string.match(v, "^/?(.+)%.json$")
-    if name then
-       table.insert(macro,name)
-    end
-end
+
+
 
 
 local Window = Fluent:CreateWindow({
@@ -32,6 +30,14 @@ local Tabs = {
 local Options = Fluent.Options
 
 do
+
+    local macro  = {}
+for i, v in pairs(listfiles("")) do
+    local name = string.match(v, "^/?(.+)%.json$")
+    if name then
+       table.insert(macro,name)
+    end
+end
 
     local Input = Tabs.Main:AddInput("CreateMacro", {
         Title = "Create Macro Name:",
@@ -81,7 +87,7 @@ do
                         Callback = function()
                             for i, v in pairs(listfiles("")) do
                                 local name = string.match(v, "^/?(.+)%.json$")
-                                if name == getgenv().SelectedMacro then
+                                if name == getgenv().MacroName then
                                  delfile(v .. ".json")
                                 end
                             end
@@ -119,7 +125,7 @@ do
 
 
     MacroDropdown:OnChanged(function(Value)
-        getgenv().StoryDifficultys = Value
+        getgenv().MacroName = Value
     end)
 
     local recordstart = false
