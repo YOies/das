@@ -1,4 +1,4 @@
---b
+--c
 
 getgenv().MacroName  = ""
 
@@ -7,7 +7,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
 local Notify = AkaliNotif.Notify;
-
+local gameName = game:GetService("MarketplaceService"):GetProductInfo(17282336195).Name
 
 
 
