@@ -1,3 +1,4 @@
+--b
 
 getgenv().MacroName  = ""
 
@@ -45,7 +46,7 @@ end
         Numeric = false, -- Only allows numbers
         Finished = true, -- Only calls callback when you press enter
         Callback = function(Value) 
-            writefile(Value .. ".json")
+            writefile(tostring(Value) .. ".json")
            end
     })
 
