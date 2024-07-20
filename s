@@ -1,4 +1,4 @@
---c
+--d
 
 getgenv().MacroName  = ""
 
@@ -45,11 +45,9 @@ end
         Placeholder = "",
         Numeric = false, -- Only allows numbers
         Finished = true, -- Only calls callback when you press enter
-        Callback = function(Value)
-           if Value then 
+        Callback = function(Value) 
             writefile(Value .. ".json")
            end
-        end
     })
 
     local MacroDropdown = Tabs.Main:AddDropdown("MacroSelect", {
