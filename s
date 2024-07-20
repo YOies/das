@@ -1,4 +1,4 @@
---b
+--thu ta
 
 getgenv().MacroName  = ""
 
@@ -39,16 +39,17 @@ for i, v in pairs(listfiles("")) do
     end
 end
 
-    local Input = Tabs.Main:AddInput("CreateMacro", {
+    local MacroInput = Tabs.Main:AddInput("MacroInput", {
         Title = "Create Macro Name:",
         Default = "",
         Placeholder = "",
         Numeric = false, -- Only allows numbers
         Finished = true, -- Only calls callback when you press enter
         Callback = function(Value) 
-            writefile(tostring(Value) .. ".json")
            end
     })
+
+
 
     local MacroDropdown = Tabs.Main:AddDropdown("MacroSelect", {
         Title = "Select Macro:",
@@ -125,7 +126,10 @@ end
     MacroDropdown:OnChanged(function(Value)
         getgenv().MacroName = Value
     end)
-
+    MacroInput:OnChanged(function()
+        writefile(tostring(MacroInput.Value) .. ".json")
+    end)
+    
     local recordstart = false
     RecordingToggle:OnChanged(function()
         if Options.RecordingMacro.Value == true and not recordstart then  
