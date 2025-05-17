@@ -7,6 +7,8 @@ game:GetService("Players").LocalPlayer.Idled:Connect(function()
     vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
 end)
 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(125.895355, 4.64667606, -339.453796, -0.0459426939, 0, -0.998944104, 0, 1, 0, 0.998944104, 0, -0.0459426939)
+
 task.spawn(function()
      while task.wait(1) do 
             game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ready"):FireServer()
